@@ -9,15 +9,14 @@ bool esMayoroMenor(int x)
 
 void nnumeros(int x, int i=1)
 {
-    cout<<i<<",";
-    while(i!=x){
-        i++;
-        cout<<i;
-        if(i!=x){
-            cout<<",";
-        }
-    }
-
+  if (x<i)
+    return;
+  if(x>=i){
+    cout<<i;
+    if(i<x)
+        cout<<",";
+    nnumeros(x, ++i);
+}
 }
 void menormayorprom(int x, int y, int z, int &may, int &men, float &prom)
 {
@@ -74,20 +73,13 @@ void ejercicio4(int numero1, int numero2)
 
 }
 
-bool ejercicio5(int a)
+bool ejercicio5(int numero)
 {
-    int c=0;
-
-    for(int i=2; i<a; i++){
-		if(a%i==0){
-			cout<<"El primer divisor es : "<< i <<endl;
-			c++;
-			return false;
-		}
-	}
-	if(c==0){
-		return true;
+    for(int i=2; i<numero; i++){
+        if(!(numero%i))
+            return false;
     }
+    return true;
 }
 
 int ejercicio6(int n)
@@ -192,7 +184,7 @@ int l=1;
 int main()
 {
     //cout<<esMayoroMenor(5)<<endl;
-    nnumeros(150);
+    //nnumeros(150);
     /*
     int mayor, menor;
     float promedio;
@@ -202,7 +194,7 @@ int main()
     cout<<"El promedio es : "<<promedio<<endl;
     */
     //ejercicio4(5,8);
-    //cout<<ejercicio5(8)<<endl;
+    cout<<ejercicio5(19);
     //ejercicio6(8);
     //ejercicio7(12345);
     //cout<<ejercicio8(12321)<<endl;
